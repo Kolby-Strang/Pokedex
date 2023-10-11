@@ -13,7 +13,6 @@ class PokemonService {
     async setActivePokemon(pokeUrl) {
         const res = await pokeApi.get(pokeUrl)
         AppState.activePokemon = new Pokemon(res.data)
-        console.log(AppState.activePokemon);
     }
 }
 

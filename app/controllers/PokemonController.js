@@ -9,6 +9,7 @@ export class PokemonController {
         this.getPokemon()
         AppState.on('pokePage', _drawPokeList)
         AppState.on('activePokemon', _drawActivePokemon)
+        AppState.on('account', _drawActivePokemon)
     }
 
     async getPokemon() {
@@ -40,6 +41,13 @@ function _drawPokeList() {
 
 function _drawActivePokemon() {
     const pokemon = AppState.activePokemon
-    if (pokemon == null) return
+    if (pokemon == null) {
+        setHTML('active-pokemon-container',
+            `<div class="poke-info-card text-center">
+            <p>No Active Pokemon</p>
+        </div>
+        `)
+        return
+    }
     setHTML('active-pokemon-container', pokemon.activeCard)
 }
