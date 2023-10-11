@@ -8,6 +8,7 @@ export class Pokemon {
         this.weight = data.weight
         this.height = data.height
         this.types = data.types
+        this.id = data.id || null
     }
 
 
@@ -37,6 +38,12 @@ export class Pokemon {
               </div>
             </div>
         <div>
+        `
+    }
+
+    get listCard() {
+        return `
+        <button class="btn d-block" onclick="app.CaughtPokemonController.setActivePokemon('${this.id}')">${this.name}</button>
         `
     }
 

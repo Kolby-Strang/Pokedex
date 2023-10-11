@@ -6,7 +6,13 @@
 
 
 
-
+.offcanvas-open-button {
+    position: absolute;
+    height: 20vh;
+    left: 0;
+    top: 45vh;
+    border-radius: 0 5px 5px 0;
+}
 
 .poke-info-card {
     background-color: salmon;

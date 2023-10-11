@@ -104,6 +104,28 @@
     </div>
   </footer>
 
+  <!-- Off Canvas -->
+  <button class="btn btn-primary offcanvas-open-button" type="button" data-bs-toggle="offcanvas"
+    data-bs-target="#my-pokemon-canvas" aria-controls="offcanvasExample">
+    >
+  </button>
+
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="my-pokemon-canvas" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasExampleLabel">My Pokemon</h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div id="my-pokemon-container" class="offcanvas-body">
+      <!-- MY POKEMON POPULATE HERE -->
+      <p>Nothing here yet!</p>
+      <p>(Login To Catch Pokemon)</p>
+    </div>
+  </div>
+
+
+
+
+  <!-- Scriiiiiiiiiiiiiiiiiiiiipts -->
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="https://cdn.auth0.com/js/auth0-spa-js/1.22/auth0-spa-js.production.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/jakeoverall/auth0provider-client/browser/Auth0Provider.js"></script>

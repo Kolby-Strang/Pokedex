@@ -27,8 +27,14 @@ export class CaughtPokemonController {
             console.error(error);
         }
     }
+
+    setActivePokemon(pokemonId) {
+        // TODO Finish this
+    }
 }
 
 function _drawMyPokemon() {
-    console.log('heheheha');
+    const pokemon = AppState.myPokemon
+    let content = ''
+    pokemon.forEach(p => content += p.listCard)
 }
