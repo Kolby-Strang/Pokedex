@@ -31,6 +31,7 @@ export class CaughtPokemonController {
 
     setActivePokemon(pokemonId) {
         caughtPokemonService.setActivePokemon(pokemonId)
+        // @ts-ignore
         bootstrap.Offcanvas.getOrCreateInstance('#my-pokemon-canvas').hide()
     }
 
