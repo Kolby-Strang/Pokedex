@@ -2,6 +2,7 @@ import { AppState } from "../AppState.js";
 import { Account } from "../models/Account.js";
 import { caughtPokemonService } from "../services/CaughtPokemonService.js";
 import { Pop } from "../utils/Pop.js";
+import { setHTML } from "../utils/Writer.js";
 
 export class CaughtPokemonController {
     constructor() {
@@ -29,7 +30,18 @@ export class CaughtPokemonController {
     }
 
     setActivePokemon(pokemonId) {
-        // TODO Finish this
+        caughtPokemonService.setActivePokemon(pokemonId)
+    }
+
+    async releasePokemon(pokemonId) {
+        try {
+            const yes = await Pop.confirm('Are you sure you want to delete this pokemon?')
+            if (!yes) return
+            await caughtPokemonService.releasePokemon(pokemonId)
+        } catch (error) {
+            Pop.error(error)
+            console.error(error);
+        }
     }
 }
 
@@ -37,4 +49,5 @@ function _drawMyPokemon() {
     const pokemon = AppState.myPokemon
     let content = ''
     pokemon.forEach(p => content += p.listCard)
+    setHTML('my-pokemon-container', content)
 }

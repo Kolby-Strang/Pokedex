@@ -20,6 +20,19 @@ class CaughtPokemonService {
         console.log(AppState.myPokemon);
         Pop.success('My Pokemon Loaded!')
     }
+
+    setActivePokemon(pokemonId) {
+        // @ts-ignore
+        AppState.activePokemon = AppState.myPokemon.find(pokemon => pokemon.id == pokemonId)
+    }
+
+    async releasePokemon(pokemonId) {
+        const res = await api.delete('api/pokemon/' + pokemonId)
+        console.log(res);
+        AppState.myPokemon = AppState.myPokemon.filter(pokemon => pokemon.id != pokemonId)
+        Pop.success('Pokemon Released')
+        console.log(AppState.myPokemon, pokemonId);
+    }
 }
 
 export const caughtPokemonService = new CaughtPokemonService()
